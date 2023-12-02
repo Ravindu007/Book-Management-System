@@ -2,6 +2,6 @@ export interface Book{
   id:string,
   name: string,
   author: string,
-  publishedYear: string,
+  datePublished: string,
   catagory: string
 }
