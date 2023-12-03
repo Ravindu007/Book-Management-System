@@ -7,18 +7,22 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import {HttpClientModule} from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+import { EditBookComponent } from './components/edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     BookListComponent,
-    AddBookComponent
+    AddBookComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,8 @@
 
         public string? Author { get; set; }
 
+        public string? Category { get; set; }
+
         public DateTime DatePublished { get; set; }
     }
 }

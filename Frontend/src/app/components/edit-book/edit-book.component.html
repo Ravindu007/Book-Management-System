@@ -1,12 +1,12 @@
 <div class="container">
-  <form #form="ngForm" (ngSubmit)="addBookRequest()">
+  <form #form="ngForm" (ngSubmit)="updateBookRequest()">
     <div class="form-group">
       <label>Name of the Book</label>
       <input 
         type="text"
         class="form-control"
         name = 'name'
-        [(ngModel)] = 'addBook.name'
+        [(ngModel)] = 'bookDetails.name'
       >
     </div>
     <div class="form-group">
@@ -15,7 +15,7 @@
         type="text"
         class="form-control"
         name = 'author'
-        [(ngModel)] = 'addBook.author'
+        [(ngModel)] = 'bookDetails.author'
       >
     </div>
     <div class="form-group">
@@ -24,7 +24,7 @@
         type="date"
         class="form-control"
         name = 'datePublished'
-        [(ngModel)] = 'addBook.datePublished'
+        [(ngModel)] = 'bookDetails.datePublished'
       >
     </div>
     <div class="form-group">
@@ -33,7 +33,7 @@
         type="text"
         class="form-control"
         name = 'category'
-        [(ngModel)] = 'addBook.category'
+        [(ngModel)] = 'bookDetails.category'
       >
     </div>
     <button class="btn btn-primary">Save</button>

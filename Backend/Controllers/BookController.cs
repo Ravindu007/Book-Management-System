@@ -27,6 +27,21 @@ namespace Backend.Controllers
         }
 
 
+        [HttpGet]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> GetBook([FromRoute]Guid id)
+        {
+            var book = await _dbcontext.Books.FirstOrDefaultAsync(x => x.Id == id);
+            if(book == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(book);
+
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> CreateBook([FromBody]Book book)
         {
@@ -35,6 +50,27 @@ namespace Backend.Controllers
             await _dbcontext.SaveChangesAsync();
 
             return Ok(book);
+        }
+
+
+        [HttpPut]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> UpdateBook([FromRoute] Guid id, Book updatedBook)
+        {
+            var book = await _dbcontext.Books.FindAsync(id);
+            if(book == null)
+            {
+                return NotFound();
+            }
+
+            book.Name = updatedBook.Name;
+            book.Author = updatedBook.Author;
+            book.DatePublished = updatedBook.DatePublished;
+            book.Category = updatedBook.Category;
+
+            await _dbcontext.SaveChangesAsync();
+            return Ok(book);
+
         }
     }
 }
