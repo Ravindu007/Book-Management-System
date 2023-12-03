@@ -48,4 +48,14 @@ export class EditBookComponent implements OnInit{
       }
     })
   }
+
+
+  deleteBook(id:string){
+    this.bookService.deleteBook(id)
+      .subscribe({
+        next:(response) => {
+          this.router.navigate(['']) 
+        }
+      })
+  }
 }

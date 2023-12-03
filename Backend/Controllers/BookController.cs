@@ -72,5 +72,23 @@ namespace Backend.Controllers
             return Ok(book);
 
         }
+
+
+        [HttpDelete]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> DeleteBook([FromRoute] Guid id)
+        {
+            var book = await _dbcontext.Books.FindAsync(id);
+            if(book == null)
+            {
+                return NotFound();
+            }
+
+            _dbcontext.Books.Remove(book);
+            await _dbcontext.SaveChangesAsync();
+            return Ok();
+
+        }
+
     }
 }
